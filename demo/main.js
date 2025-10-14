@@ -1,0 +1,3 @@
+import RealtimeMarkdown from "..";
+
+RealtimeMarkdown();
