@@ -3,18 +3,17 @@
   "type": "module",
   "license": "MIT",
   "scripts": {
-    "build": "tsc ./index.ts --outDir dist",
+    "build": "tsc ./index.ts --declaration --outDir dist",
     "test": "bun test"
   },
   "devDependencies": {
     "@types/bun": "latest"
   },
-  "main": "index.ts",
-  "module": "index.ts",
   "types": "dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./index.ts"
+      "import": "./dist/index.js",
+      "require": "./dist/index.js"
     }
   },
   "prepare": "npm run build",
