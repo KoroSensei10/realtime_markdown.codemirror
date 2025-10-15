@@ -1,8 +1,8 @@
 import { syntaxTree } from "@codemirror/language";
 import { Decoration, EditorView, ViewPlugin, ViewUpdate } from "@codemirror/view";
-import { selectionInNode } from './utils';
-import { ClickableLinkWidget } from "./Widget/ClickableLink";
-import { modKeyPressed, modKeyPressedField } from "./domEvents";
+import { selectionInNode } from './utils.js';
+import { ClickableLinkWidget } from "./Widget/ClickableLink.js";
+import { modKeyPressed, modKeyPressedField } from "./domEvents.js";
 import {} from "@codemirror/state";
 export function realtimeMarkdown(view) {
     const decorations = [];
@@ -11,6 +11,7 @@ export function realtimeMarkdown(view) {
             from,
             to,
             enter: (node) => {
+                var _a;
                 const isModKeyPressed = view.state.field(modKeyPressedField, false);
                 const isInSelection = selectionInNode(view, node.from, node.to);
                 switch (node.name) {
@@ -119,7 +120,7 @@ export function realtimeMarkdown(view) {
                                     node.name.includes("4") ? 4 :
                                         node.name.includes("5") ? 5 : 6;
                         const prefixLength = node.name.startsWith("ATX") ? headingLevel + 1 : 2;
-                        const text = view.state.sliceDoc(node.from, node.to).split(' ')?.[1]; // Texte après les # ou =
+                        const text = (_a = view.state.sliceDoc(node.from, node.to).split(' ')) === null || _a === void 0 ? void 0 : _a[1]; // Texte après les # ou =
                         if (!isInSelection && text) {
                             decorations.push(Decoration.replace({}).range(node.from, node.from + prefixLength));
                         }
@@ -148,7 +149,6 @@ export function realtimeMarkdown(view) {
     }));
 }
 export const liveMarkdownPlugin = ViewPlugin.fromClass(class {
-    decorations;
     constructor(view) {
         this.decorations = realtimeMarkdown(view);
     }

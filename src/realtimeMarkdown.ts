@@ -1,9 +1,9 @@
 import { syntaxTree } from "@codemirror/language";
 import { Decoration, EditorView, ViewPlugin, ViewUpdate, type DecorationSet } from "@codemirror/view";
 
-import { selectionInNode } from './utils';
-import { ClickableLinkWidget } from "./Widget/ClickableLink";
-import { modKeyPressed, modKeyPressedField } from "./domEvents";
+import { selectionInNode } from './utils.js';
+import { ClickableLinkWidget } from "./Widget/ClickableLink.js";
+import { modKeyPressed, modKeyPressedField } from "./domEvents.js";
 
 import { type Range } from "@codemirror/state";
 

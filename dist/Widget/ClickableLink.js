@@ -1,7 +1,5 @@
 import { WidgetType } from "@codemirror/view";
 export class ClickableLinkWidget extends WidgetType {
-    link;
-    content;
     constructor(link, content) {
         super();
         this.link = link;

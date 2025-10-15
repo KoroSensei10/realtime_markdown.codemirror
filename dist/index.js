@@ -1,9 +1,9 @@
-import { liveMarkdownPlugin } from "./realtimeMarkdown";
-import { domEventHandlers } from "./domEvents";
-import { realtimeMarkdownTheme } from "./theme";
-export * from "./realtimeMarkdown";
-export * from "./domEvents";
-export * from "./theme";
+import { liveMarkdownPlugin } from "./realtimeMarkdown.js";
+import { domEventHandlers } from "./domEvents.js";
+import { realtimeMarkdownTheme } from "./theme.js";
+export * from "./realtimeMarkdown.js";
+export * from "./domEvents.js";
+export * from "./theme.js";
 export const realtimeMarkdown = [
     liveMarkdownPlugin,
     domEventHandlers,
