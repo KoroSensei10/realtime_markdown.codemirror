@@ -27,5 +27,5 @@
     "@codemirror/state": "^6.0.0",
     "@codemirror/view": "^6.0.0"
   },
-  "version": "0.0.1-0"
+  "version": "0.0.1-1"
 }
