@@ -1,9 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.realtimeMarkdownTheme = void 0;
-var view_1 = require("@codemirror/view");
+import { EditorView } from "@codemirror/view";
 // Base theme for Real-time Markdown styling
-exports.realtimeMarkdownTheme = view_1.EditorView.baseTheme({
+export const realtimeMarkdownTheme = EditorView.baseTheme({
     ".rtm-listMark": {
         opacity: "0.5",
     },

@@ -1,11 +1,11 @@
-import { liveMarkdownPlugin } from "./src/realtimeMarkdown"
-import { domEventHandlers } from "./src/domEvents"
-import { realtimeMarkdownTheme } from "./src/theme"
+import { liveMarkdownPlugin } from "./realtimeMarkdown"
+import { domEventHandlers } from "./domEvents"
+import { realtimeMarkdownTheme } from "./theme"
 import type { Extension } from "@codemirror/state"
 
-export * from "./src/realtimeMarkdown"
-export * from "./src/domEvents"
-export * from "./src/theme";
+export * from "./realtimeMarkdown"
+export * from "./domEvents"
+export * from "./theme";
 
 export const realtimeMarkdown: Extension[] = [
     liveMarkdownPlugin,
