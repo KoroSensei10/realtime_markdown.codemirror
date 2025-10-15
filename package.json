@@ -1,16 +1,30 @@
 {
   "name": "realtime_markdown.codemirror",
-  "module": "index.ts",
   "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "tsc ./index.ts --outDir dist",
+    "test": "bun test"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
+  "main": "index.ts",
+  "module": "index.ts",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./index.ts"
+    }
+  },
+  "prepare": "npm run build",
+  "prepublishOnly": "npm test",
   "peerDependencies": {
     "typescript": "^5"
   },
   "dependencies": {
-    "@codemirror/language": "^6.11.3",
-    "@codemirror/state": "^6.5.2",
-    "@codemirror/view": "^6.38.6"
+    "@codemirror/language": "^6.0.0",
+    "@codemirror/state": "^6.0.0",
+    "@codemirror/view": "^6.0.0"
   }
 }

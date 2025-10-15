@@ -29,9 +29,3 @@ export const domEventHandlers = EditorView.domEventHandlers({
         }
     },
 });
-
-export default function realtimeMarkdownEvents() {
-    return [
-        domEventHandlers,
-    ];
-}

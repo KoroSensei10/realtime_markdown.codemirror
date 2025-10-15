@@ -16,7 +16,6 @@ export function realtimeMarkdown(view: EditorView): DecorationSet {
             enter: (node) => {
                 const isModKeyPressed = view.state.field(modKeyPressedField, false);
                 const isInSelection = selectionInNode(view, node.from, node.to);
-                console.log(node.name, node.from, node.to);
                 switch (node.name) {
                     case "ListMark": {
                         if (!isInSelection) {
@@ -186,7 +185,7 @@ export function realtimeMarkdown(view: EditorView): DecorationSet {
         return a.from - b.from;
     }));
 }
-const liveMarkdownPlugin = ViewPlugin.fromClass(
+export const liveMarkdownPlugin = ViewPlugin.fromClass(
     class {
         decorations: DecorationSet;
 
@@ -198,8 +197,8 @@ const liveMarkdownPlugin = ViewPlugin.fromClass(
             if (
                 update.docChanged ||
                 update.selectionSet ||
-                update.focusChanged ||
-                update.transactions.some(tr => tr.effects.some(e => e.is(modKeyPressed)))
+                update.focusChanged
+                || update.transactions.some(tr => tr.effects.some(e => e.is(modKeyPressed)))
             )
                 this.decorations = realtimeMarkdown(update.view);
         }
@@ -208,9 +207,3 @@ const liveMarkdownPlugin = ViewPlugin.fromClass(
         decorations: v => v.decorations,
     },
 );
-
-export function realtimeMarkdownExtension() {
-    return [
-        liveMarkdownPlugin,
-    ];
-}
