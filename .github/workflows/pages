@@ -35,6 +35,8 @@ jobs:
         with:
           node-version: lts/*
           cache: 'npm'
+      - name: Cd to demo folder
+        run: cd demo
       - name: Install dependencies
         run: npm ci
       - name: Build
